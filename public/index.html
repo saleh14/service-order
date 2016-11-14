@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/vue.js"> </script>
+    <script src="lib/axios.js"> </script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="service in services">
+            <input v-model="service.checked" type="checkbox" name="service.name" :value="service.name" /> {{service.name}}
+            ——— {{service.price}}$ {{service.checked?'ok':''}}
+        </div>
+        <br>
+        <div v-for="selected in selectedServices"> {{selected.name}}</div>
+        <div>
+            {{selectedServices.reduce((total,service)=> {total+=parseInt(service.price);return total},0)}}$
+        </div>
+    </div>
+    <script src="src/app.js"> </script>
+</body>
+
+</html>
