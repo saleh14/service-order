@@ -1,0 +1,24 @@
+spec::
+
+    costumer
+    service
+
+
+    history -> (costumers, services, date)
+
+    Order -> (new/existing Costumer, service)
+
+    preOrder -> (costumer name/mobile, selected services)
+
+    customerView -> (costumer info fields, list of services to order, order button)
+
+    adminView -> (history of orders, status per order);
+
+
+back-end::
+    store order
+    store customers
+    store services
+
+    
+   

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>costumerList</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/vue.js"></script>
+    <script src="lib/axios.js"></script>
+
+    <script src="./src/app.js"></script>
+    <script>
+        onload = function() {
+
+            var api = axios.create({
+                baseURL: 'http://localhost:3000/',
+                timeout: 1000
+            });
+            api.post('/constumers', {
+                    firstName: 'Fred',
+                    lastName: 'Flintstone'
+                })
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        }
+    </script>
+
+
+    <head>
+
+        <body>
+        </body>
+
+</html>
