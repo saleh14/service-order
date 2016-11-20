@@ -21,4 +21,25 @@ back-end::
     store services
 
     
+** ** ** **
+** Try 2 **
+** ** ** **
    
+model:
+    order -> (service, costumer, date)
+    service -> (price, name)
+    costumer -> (name, mobile, orders)
+
+BLogic client
+    viewService -> list of servie info
+    preOrder -> selected services, order button
+
+Blogic admin
+    viewOrders -> orders history, date of order
+    costumer -> view top costumer?
+    
+
+Back-end
+    store order
+    store services list
+    

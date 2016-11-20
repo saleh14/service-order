@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-size: 16pt;
+            line-height: 1.5em;
+            color: 444;
+        }
+    </style>
+    <script src="lib/vue.js"> </script>
+    <script src="lib/axios.js"> </script>
+    <script src="lib/jquery.min.js"> </script>
+    <script src="lib/jquery.scrollTo.min.js"> </script>
+    <script src="lib/jquery.localScrol.min.js"> </script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="service in services">
+            <input v-model="service.checked" type="checkbox" name="service.name" :value="service.name" /> {{service.name}}
+            ——— ${{service.price}} {{service.checked?'ok':''}}
+        </div>
+        <div class="halfLine"> </div>
+        <ul class="localScroll">
+
+            <a href="#yourOrder" @click="orderHandler">Order</a>
+        </ul>
+        <div v-for="selected in selectedServices"> {{selected.name}}</div>
+        <div v-if="getTotalPrice(selectedServices)>0">
+            ${{getTotalPrice(selectedServices)}}
+        </div>
+
+        <div v-if="orderedServices.length > 0">
+            <br><br> <br><br>
+            <br id="yourOrder">
+            <span>Complete your Order! </span> <br>
+            <span> {{orderedServicesFormatted}} </span>
+            <div>total: ${{getTotalPrice(orderedServices)}}</div>
+            <div class="yourInfo">
+                <label>Name:</label>
+                <input type="text" v-model='costumer.name'><br>
+                <label>Moble:</label>
+                <input type="text" v-model='costumer.mobile'>
+            </div>
+            <button @click="sendOrder">Send Oreder</button>
+            <br><br><br><br><br><br><br>
+        </div>
+    </div>
+    <script src="src/app.js"> </script>
+</body>
+
+</html>
