@@ -12,22 +12,38 @@
             color: 444;
         }
     </style>
-    <script src="lib/vue.js"> </script>
-    <script src="lib/axios.js"> </script>
-    <script src="lib/jquery.min.js"> </script>
-    <script src="lib/jquery.scrollTo.min.js"> </script>
-    <script src="lib/jquery.localScrol.min.js"> </script>
+
+    <link rel="stylesheet" href="stylesheets/home.css">
+    <script src="lib/vue.js">
+    </script>
+    <script src="lib/axios.js">
+    </script>
+    <script src="lib/jquery.min.js">
+    </script>
+    <script src="lib/jquery.scrollTo.min.js">
+    </script>
+    <script src="lib/jquery.localScrol.min.js">
+    </script>
 </head>
 
 <body>
     <div id="app">
-        <div v-for="service in services">
-            <input v-model="service.checked" type="checkbox" name="service.name" :value="service.name" /> {{service.name}}
-            ——— ${{service.price}} {{service.checked?'ok':''}}
-        </div>
-        <div class="halfLine"> </div>
+        <table class="table-minimal">
+            <tbody>
+                <tr v-for="service in services" @click="selectServiceHelper">
+                    <td>
+                        <input v-model="service.checked" type="checkbox" name="service.name" :value="service.name" />
+                    </td>
+                    <td>
+                        {{service.name}}
+                    </td>
+                    <td>
+                        ${{service.price}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <ul class="localScroll">
-
             <a href="#yourOrder" @click="orderHandler">Order</a>
         </ul>
         <div v-for="selected in selectedServices"> {{selected.name}}</div>
@@ -51,7 +67,8 @@
             <br><br><br><br><br><br><br>
         </div>
     </div>
-    <script src="src/app.js"> </script>
+    <script src="src/app.js">
+    </script>
 </body>
 
 </html>
